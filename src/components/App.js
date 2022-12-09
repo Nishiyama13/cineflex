@@ -1,9 +1,11 @@
-import Header from "./Header";
-import EscolhaDeFilme from "../pages/EscolhaDeFilme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./Header";
 import EscolhaDeSessao from "../pages/EscolhaDeSessao";
 import EscolhaDeAssento from "../pages/EscolhaDeAssento";
 import Sucesso from "../pages/Sucesso";
+
+import EscolhaDeFilme from "../pages/EscolhaDeFilme";
 import Footer from "./Footer";
 
 export default function App() {
