@@ -35,7 +35,7 @@ export default function EscolhaDeFilme() {
                 <li>
                   <img src={filme.posterURL} alt={filme.title} />
                 </li>
-              </Link>
+              </Link>{" "}
             </Cartaz>
           ))}
         </ul>

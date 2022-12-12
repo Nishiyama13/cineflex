@@ -9,7 +9,6 @@ export default function EscolhaDeSessao() {
   const URLFilme = `https://mock-api.driven.com.br/api/v8/cineflex/movies/${idFilme}/showtimes`;
   console.log(`idFilme = ${idFilme} `);
 
-  //${sessaoId}
   useEffect(() => {
     const promise = axios.get(URLFilme);
 
@@ -46,9 +45,11 @@ export default function EscolhaDeSessao() {
               <ContainerButtons>
                 <ul>
                   {sessao.showtimes.map(h => (
-                    <li key={h.id}>
-                      <button>{h.name}</button>
-                    </li>
+                    <Link to={`/assentos/${h.id}`} key={h.id}>
+                      <li key={h.id}>
+                        <button>{h.name}</button>
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               </ContainerButtons>
