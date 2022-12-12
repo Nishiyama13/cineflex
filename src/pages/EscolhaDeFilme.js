@@ -30,7 +30,7 @@ export default function EscolhaDeFilme() {
 
         <ul>
           {filmes.map(filme => (
-            <Cartaz>
+            <Cartaz data-test="movie">
               <Link to={`/sessoes/${filme.id}`} key={filme.id}>
                 <li>
                   <img src={filme.posterURL} alt={filme.title} />

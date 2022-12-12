@@ -90,7 +90,7 @@ export default function EscolhaDeAssento(props) {
         <ul>
           <ContainerAssentos>
             {assentos.seats.map(a => (
-              <li key={a.id} disponibilidade={a.isAvailable}>
+              <li data-test="seat" key={a.id} disponibilidade={a.isAvailable}>
                 <button onClick={() => addAssento(a)}>{Number(a.name)}</button>
               </li>
             ))}
@@ -116,6 +116,7 @@ export default function EscolhaDeAssento(props) {
         <h2>Nome do Comprador</h2>
         <form onSubmit={salvarUsuario}>
           <input
+            data-test="client-name"
             placeholder="Digite seu nome..."
             type="text"
             value={nameUsuario}
@@ -123,13 +124,16 @@ export default function EscolhaDeAssento(props) {
           />
           <h2>CPF do Comprador</h2>
           <input
+            data-test="client-cpf"
             placeholder="Digite seu CPF..."
             type="number"
             value={cpfUsuario}
             onChange={e => setCpfUsuario(e.target.value)}
           />
           <ButtonReserva>
-            <button type="submit">Reservar assento(s)</button>
+            <button data-test="book-seat-btn" type="submit">
+              Reservar assento(s)
+            </button>
           </ButtonReserva>{" "}
         </form>
       </ContainerInputs>

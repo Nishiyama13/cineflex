@@ -35,7 +35,7 @@ export default function EscolhaDeSessao() {
         <h1>Selecione o horário</h1>
         <ul>
           {sessoes.days.map(sessao => (
-            <li key={sessao.id}>
+            <li data-test="movie-day" key={sessao.id}>
               <div>
                 <p>
                   <span>{sessao.weekday}</span>
@@ -46,7 +46,7 @@ export default function EscolhaDeSessao() {
                 <ul>
                   {sessao.showtimes.map(h => (
                     <Link to={`/assentos/${h.id}`} key={h.id}>
-                      <li key={h.id}>
+                      <li key={h.id} data-test="show-time">
                         <button>{h.name}</button>
                       </li>
                     </Link>
@@ -89,6 +89,8 @@ const SessoesContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
+
+    padding-left: 20px;
   }
   p {
     font-family: Roboto;
@@ -98,9 +100,7 @@ const SessoesContainer = styled.div`
     letter-spacing: 0.02em;
   }
 `;
-const HorarioContainer = styled.div`
-  background-color: black;
-`;
+
 const ContainerButtons = styled.div`
   button {
     background-color: #e8833a;

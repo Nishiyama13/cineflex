@@ -4,6 +4,11 @@ export default function Sucesso(props) {
   //problema, nao estou recebendo os dados, acho que preciso usar um useRecall na App.js para atualizar os dados
 
   function voltarHome() {
+    //ainda tem que limpar
+    //setUsuario("");
+    //setCpfUsuatio("");
+    //setIdsUsuario([]); //importar
+    //setPoltronas([]);  //importar
     window.location.href = `/`;
   }
   return (
