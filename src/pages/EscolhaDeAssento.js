@@ -15,6 +15,14 @@ export default function EscolhaDeAssento(props) {
     setPoltronas,
   } = props;
 
+  //separar em style.js
+  const amareloBack = "#fbe192";
+  const amareloBorda = "#f7c52b";
+  const verdeBack = "#1aae9e";
+  const vendeBorda = "#0e7d71";
+  const cinzaBack = "#c3cfd9";
+  const cinzaBorda = "#808f9d";
+
   const [assentos, setAssentos] = useState(undefined);
   const { idSessao } = useParams();
   const URLAssentos = `https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`;
@@ -42,7 +50,7 @@ export default function EscolhaDeAssento(props) {
     // reserva.ids = assentosEscolhidos;
     reserva.name = nameUsuario;
     reserva.cpf = cpfUsuario;
-    //reserva.ids = ids;
+    reserva.ids = ids;
 
     alert(`nome: ${nameUsuario}cpf:${cpfUsuario} resrva${reserva}`);
 
@@ -59,8 +67,12 @@ export default function EscolhaDeAssento(props) {
 
     if (a.isAvailable === true && poltronas.includes(a.name) === false) {
       const assentosSelecionados = [...poltronas, a.name];
+      const idsSelecionados = [...ids, a.id];
       setPoltronas(assentosSelecionados);
-      console.log(assentosSelecionados);
+      setIds(idsSelecionados);
+      console.log(
+        `assentosSelecionados :${assentosSelecionados} idsSelecionado :${idsSelecionados}`
+      );
     } else {
       if (poltronas.includes(a.name) === true) {
         alert(`Assento ${a.name} já foi selecionado`);
@@ -78,7 +90,7 @@ export default function EscolhaDeAssento(props) {
         <ul>
           <ContainerAssentos>
             {assentos.seats.map(a => (
-              <li key={a.id}>
+              <li key={a.id} disponibilidade={a.isAvailable}>
                 <button onClick={() => addAssento(a)}>{Number(a.name)}</button>
               </li>
             ))}
@@ -157,7 +169,22 @@ const ContainerAssentos = styled.div`
   justify-content: space-between;
   margin-left: 24px;
 `;
-
+/* colocar na div ContainerAssentos
+  button {
+    background-color: ${props => {
+      if (props.disponibilidade) {
+        if (===undefined) {
+          return (#C3CFD9);
+        }
+        if(===true){
+return()
+        }
+      }
+      else{
+retur()
+      }
+    }};
+  }*/
 const ContainerOpcoes = styled.div`
   display: flex;
   justify-content: center;
@@ -169,10 +196,7 @@ const ContainerOpcoes = styled.div`
   }
 
   button {
-    background-color: #1aae9e;
-    border: 1px solid #0e7d71;
-    //    background-color: #fbe192;
-    //  border: 1px solid #f7c52b;
+    background-color: #000;
   }
 `;
 const ContainerInputs = styled.div`
