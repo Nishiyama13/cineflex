@@ -40,11 +40,11 @@ export default function EscolhaDeAssento(props) {
   function salvarUsuario(e) {
     e.preventDefault();
     // reserva.ids = assentosEscolhidos;
-    //reserva.name = nameUsuario;
-    //reserva.cpf = cpfUsuario;
+    reserva.name = nameUsuario;
+    reserva.cpf = cpfUsuario;
     //reserva.ids = ids;
 
-    alert(`nome: ${nameUsuario}cpf:${cpfUsuario}`);
+    alert(`nome: ${nameUsuario}cpf:${cpfUsuario} resrva${reserva}`);
 
     const promise = axios.post(
       "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
@@ -52,6 +52,18 @@ export default function EscolhaDeAssento(props) {
     );
     promise.then(() => navigate("/sucesso"));
     promise.catch(err => console.log(err.response.data));
+  }
+
+  function addAssento(a) {
+    console.log(a); //ex: {id: 4486, name: '36', isAvailable: false}
+
+    if (a.isAvailable === true) {
+      const assentosSelecionados = [...poltronas, a.name];
+      setPoltronas(assentosSelecionados);
+      console.log(assentosSelecionados);
+    } else {
+      alert(`Assento indisponível, escolha outro!`);
+    }
   }
 
   return (
@@ -63,7 +75,7 @@ export default function EscolhaDeAssento(props) {
           <ContainerAssentos>
             {assentos.seats.map(a => (
               <li key={a.id}>
-                <button>{Number(a.name)}</button>
+                <button onClick={() => addAssento(a)}>{Number(a.name)}</button>
               </li>
             ))}
           </ContainerAssentos>
