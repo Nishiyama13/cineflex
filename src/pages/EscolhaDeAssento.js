@@ -52,7 +52,7 @@ export default function EscolhaDeAssento(props) {
     reserva.cpf = cpfUsuario;
     reserva.ids = ids;
 
-    alert(`nome: ${nameUsuario}cpf:${cpfUsuario} resrva${reserva}`);
+    alert(`nome: ${nameUsuario} cpf: ${cpfUsuario} reserva id: ${ids}`);
 
     const promise = axios.post(
       "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
