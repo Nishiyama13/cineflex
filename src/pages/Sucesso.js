@@ -12,23 +12,24 @@ export default function Sucesso(props) {
         <h1>Pedido feito com Sucesso!</h1>
       </ContainerFinalizacao>
 
-      <ContainerDados>
+      <ContainerDados data-test="movie-info">
         <h3>Filmes e sessão</h3>
         <p>nome do Filme</p>
         <p>data e hora</p>
       </ContainerDados>
-      <ContainerDados>
+      <ContainerDados data-test="seats-info">
         <h3>Ingressos</h3>
         <p>Assento poltronas.name (fazer um map)`</p>
       </ContainerDados>
-      <ContainerDados>
+      <ContainerDados data-test="client-info">
         <h3>Comprador</h3>
         <p>Nome: nameUsuario`</p>
         <p>CPF: cpf</p>
       </ContainerDados>
-
       <BotaoFinalizar>
-        <button onClick={voltarHome}>Voltar para Home</button>{" "}
+        <button data-teste="go-home-btn" onClick={voltarHome}>
+          Voltar para Home
+        </button>{" "}
       </BotaoFinalizar>
     </>
   );
