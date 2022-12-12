@@ -57,12 +57,16 @@ export default function EscolhaDeAssento(props) {
   function addAssento(a) {
     console.log(a); //ex: {id: 4486, name: '36', isAvailable: false}
 
-    if (a.isAvailable === true) {
+    if (a.isAvailable === true && poltronas.includes(a.name) === false) {
       const assentosSelecionados = [...poltronas, a.name];
       setPoltronas(assentosSelecionados);
       console.log(assentosSelecionados);
     } else {
-      alert(`Assento indisponível, escolha outro!`);
+      if (poltronas.includes(a.name) === true) {
+        alert(`Assento ${a.name} já foi selecionado`);
+      } else {
+        alert(`Assento indisponível, escolha outro!`);
+      }
     }
   }
 
