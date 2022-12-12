@@ -12,9 +12,9 @@ export default function EscolhaDeFilme() {
     );
     promise.then(res => {
       setFilmes(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
-    console.log(promise);
+    // console.log(promise);
 
     promise.catch(err => console.log(err.response.data));
   }, []);
@@ -35,7 +35,7 @@ export default function EscolhaDeFilme() {
                 <li>
                   <img src={filme.posterURL} alt={filme.title} />
                 </li>
-              </Link>{" "}
+              </Link>
             </Cartaz>
           ))}
         </ul>
@@ -58,7 +58,7 @@ const BibliotecaContainer = styled.div`
     line-height: 28px;
     letter-spacing: 0.04em;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 50px;
 
     height: 110px;
     width: 100%;
