@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 export default function EscolhaDeAssento(props) {
   const {
@@ -46,7 +47,7 @@ export default function EscolhaDeAssento(props) {
   console.log(assentos);
 
   function salvarUsuario(e) {
-    e.preventDefault();
+    e.preventDefault(); //problema: ainda esta redirecionando com input vazio (quando coloco o this pg nao renderi)
     // reserva.ids = assentosEscolhidos;
     reserva.name = nameUsuario;
     reserva.cpf = cpfUsuario;
