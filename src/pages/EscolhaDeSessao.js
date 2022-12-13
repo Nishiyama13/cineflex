@@ -8,7 +8,7 @@ export default function EscolhaDeSessao() {
   const { idFilme } = useParams();
   const URLFilme = `https://mock-api.driven.com.br/api/v8/cineflex/movies/${idFilme}/showtimes`;
   console.log(`idFilme = ${idFilme} `);
-
+  const urlImg = "";
   useEffect(() => {
     const promise = axios.get(URLFilme);
 
@@ -57,6 +57,14 @@ export default function EscolhaDeSessao() {
           ))}
         </ul>
       </SessoesContainer>
+      <ContainerFooter data-test="footer">
+        <Imagem>
+          <img src={sessoes.posterURL} alt={sessoes.title} />
+        </Imagem>
+        <DadosFooter>
+          <p>{sessoes.title}</p>
+        </DadosFooter>
+      </ContainerFooter>
     </>
   );
 }
@@ -113,6 +121,43 @@ const ContainerButtons = styled.div`
     border-radius: 3px;
 
     color: #ffffff;
+  }
+`;
+
+//footer (arrumar para aparecer no componente Footer )
+const ContainerFooter = styled.div`
+  height: 117px;
+width:100% ;
+  background-color:#DFE6ED ;
+  border: 1px solid #9EADBA
+
+
+  border-radius: 0px;
+  position: fixed;
+  bottom: 0px;
+
+  display: flex;
+  align-items: center;
+
+  padding:0px 8px 0px 8px ;
+`;
+const Imagem = styled.div`
+  img {
+    height: 72px;
+    width: 48px;
+    border: 8px solid white;
+  }
+`;
+const DadosFooter = styled.div`
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    padding-left: 14px;
   }
 `;
 

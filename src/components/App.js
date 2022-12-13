@@ -6,14 +6,14 @@ import EscolhaDeAssento from "../pages/EscolhaDeAssento";
 import Sucesso from "../pages/Sucesso";
 
 import EscolhaDeFilme from "../pages/EscolhaDeFilme";
-import Footer from "./Footer";
+import Footer from "../pages/Footer";
 import { useState } from "react";
 
 export default function App() {
   const [nameUsuario, setNameUsuario] = useState("");
   const [cpfUsuario, setCpfUsuario] = useState("");
-  const [ids, setIds] = useState([]);
-  const [poltronas, setPoltronas] = useState([]);
+  const [ids, setIds] = useState([]); //ids das poltronas
+  const [poltronas, setPoltronas] = useState([]); //name das poltronas
 
   return (
     <BrowserRouter>
@@ -47,7 +47,6 @@ export default function App() {
           }
         />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

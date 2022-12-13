@@ -32,7 +32,7 @@ export default function Sucesso(props) {
         <p>CPF: cpf</p>
       </ContainerDados>
       <BotaoFinalizar>
-        <button data-teste="go-home-btn" onClick={voltarHome}>
+        <button data-test="go-home-btn" onClick={voltarHome}>
           Voltar para Home
         </button>{" "}
       </BotaoFinalizar>
