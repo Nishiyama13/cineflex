@@ -118,6 +118,7 @@ const ContainerButtons = styled.div`
 
     margin-top: 22px;
     margin-bottom: 22px;
+    border: none;
     border-radius: 3px;
 
     color: #ffffff;

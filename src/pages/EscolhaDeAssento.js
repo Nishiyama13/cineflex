@@ -24,6 +24,8 @@ export default function EscolhaDeAssento(props) {
   const cinzaBack = "#c3cfd9";
   const cinzaBorda = "#808f9d";
 
+  const verde = "#156";
+
   const [assentos, setAssentos] = useState(undefined);
   const { idSessao } = useParams();
   const URLAssentos = `https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`;
@@ -94,8 +96,15 @@ export default function EscolhaDeAssento(props) {
         <ul>
           <ContainerAssentos>
             {assentos.seats.map(a => (
-              <li data-test="seat" key={a.id} disponibilidade={a.isAvailable}>
-                <button onClick={() => addAssento(a)}>{Number(a.name)}</button>
+              <li key={a.id} disponibilidade={a.isAvailable}>
+                <button
+                  cor={cinzaBack}
+                  borda={cinzaBorda}
+                  data-test="seat"
+                  onClick={() => addAssento(a)}
+                >
+                  {Number(a.name)}
+                </button>
               </li>
             ))}
           </ContainerAssentos>
@@ -103,15 +112,15 @@ export default function EscolhaDeAssento(props) {
 
         <ContainerOpcoes>
           <div>
-            <button></button>
+            <button corBack={amareloBack}></button>
             <p>Selecionado</p>
           </div>
           <div>
-            <button></button>
+            <button corBack={verdeBack}></button>
             <p>Disponível</p>
           </div>
           <div>
-            <button></button>
+            <button corBack={cinzaBack}></button>
             <p>Indisponível</p>
           </div>
         </ContainerOpcoes>
@@ -160,12 +169,11 @@ const ContainerPage = styled.div`
   button {
     height: 26px;
     width: 26px;
-    margin-right:7px ;
-    margin-bottom:18px ;
+    margin-right: 7px;
+    margin-bottom: 18px;
 
     border-radius: 12px;
-    border: 1px solid #808F9D
-    background:#C3CFD9;
+    border: 1px solid #808f9d;
   }
   h1 {
     font-family: "Roboto", sans-serif;
@@ -180,7 +188,7 @@ const ContainerPage = styled.div`
     width: 100%;
     border-radius: nullpx;
   }
-`;
+`; //background-color: #C3CFD9;
 const ContainerAssentos = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -214,7 +222,7 @@ const ContainerOpcoes = styled.div`
   }
 
   button {
-    background-color: #000;
+    background-color: ${props => props.corBack};
   }
 `;
 const ContainerInputs = styled.div`
@@ -294,6 +302,7 @@ align-items: center;
 
 padding:0px 8px 0px 8px ;
 `;
+
 const Imagem = styled.div`
   img {
     height: 72px;
