@@ -162,9 +162,6 @@ const ContainerPage = styled.div`
     border-radius: 12px;
     border: 1px solid #808F9D
     background:#C3CFD9;
-
-
-
   }
   h1 {
     font-family: "Roboto", sans-serif;
