@@ -137,6 +137,17 @@ export default function EscolhaDeAssento(props) {
           </ButtonReserva>{" "}
         </form>
       </ContainerInputs>
+      <ContainerFooter data-test="footer">
+        <Imagem>
+          <img src={assentos.movie.posterURL} alt={assentos.movie.title} />
+        </Imagem>
+        <DadosFooter>
+          <p>{assentos.movie.title}</p>
+          <p>
+            {assentos.day.weekday} - {assentos.name}
+          </p>
+        </DadosFooter>
+      </ContainerFooter>
     </>
   );
 }
@@ -151,6 +162,8 @@ const ContainerPage = styled.div`
     border-radius: 12px;
     border: 1px solid #808F9D
     background:#C3CFD9;
+
+
 
   }
   h1 {
@@ -206,6 +219,7 @@ const ContainerOpcoes = styled.div`
 const ContainerInputs = styled.div`
   margin-top: 42px;
   margin-left: 24px;
+
   h2 {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
@@ -238,15 +252,23 @@ const ContainerInputs = styled.div`
 const ButtonReserva = styled.div`
   display: flex;
   justify-content: center;
-  margin: 57px 0px 30px 0px;
+  padding: 42px 0px 150px 0px;
   button {
     height: 42px;
     width: 225px;
-    border-radius: nullpx;
 
+    border-radius: 3px;
     background-color: #e8833a;
+    border: none;
 
     color: #ffffff;
+
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-align: center;
   }
 `;
 /*  //const BORDAAMARELO = "#F7C52B";
@@ -254,3 +276,39 @@ const ButtonReserva = styled.div`
 
   //const BORDAVERDE = "#0E7D71";
   //const VERDE = "#1AAE9E";*/
+//footer (arrumar para aparecer no componente Footer )
+const ContainerFooter = styled.div`
+height: 117px;
+width:100% ;
+background-color:#DFE6ED ;
+border: 1px solid #9EADBA
+
+
+border-radius: 0px;
+position: fixed;
+bottom: 0px;
+
+display: flex;
+align-items: center;
+
+padding:0px 8px 0px 8px ;
+`;
+const Imagem = styled.div`
+  img {
+    height: 72px;
+    width: 48px;
+    border: 8px solid white;
+  }
+`;
+const DadosFooter = styled.div`
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    padding-left: 14px;
+  }
+`;
