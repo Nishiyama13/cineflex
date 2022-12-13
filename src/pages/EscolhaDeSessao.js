@@ -45,8 +45,12 @@ export default function EscolhaDeSessao() {
               <ContainerButtons>
                 <ul>
                   {sessao.showtimes.map(h => (
-                    <Link to={`/assentos/${h.id}`} key={h.id}>
-                      <li key={h.id} data-test="show-time">
+                    <Link
+                      data-test="show-time"
+                      to={`/assentos/${h.id}`}
+                      key={h.id}
+                    >
+                      <li key={h.id}>
                         <button>{h.name}</button>
                       </li>
                     </Link>
