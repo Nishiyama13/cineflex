@@ -47,20 +47,23 @@ export default function EscolhaDeAssento(props) {
   console.log(assentos);
 
   function salvarUsuario(e) {
-    e.preventDefault(); //problema: ainda esta redirecionando com input vazio (quando coloco o this pg nao renderi)
+    e.preventDefault();
     // reserva.ids = assentosEscolhidos;
     reserva.name = nameUsuario;
     reserva.cpf = cpfUsuario;
     reserva.ids = ids;
-
-    alert(`nome: ${nameUsuario} cpf: ${cpfUsuario} reserva id: ${ids}`);
-
-    const promise = axios.post(
-      "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
-      reserva
-    );
-    promise.then(() => navigate("/sucesso"));
-    promise.catch(err => console.log(err.response.data));
+    console.log(`reserva.ids: ${reserva.ids}`);
+    if (reserva.name !== "" && reserva.cpf !== "" && reserva.ids.length !== 0) {
+      alert(`nome: ${nameUsuario} cpf: ${cpfUsuario} reserva id: ${ids}`);
+      const promise = axios.post(
+        "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
+        reserva
+      );
+      promise.then(() => navigate("/sucesso"));
+      promise.catch(err => console.log(err.response.data));
+    } else {
+      alert(`Complete todos os campos para continuar`);
+    }
   }
 
   function addAssento(a) {
